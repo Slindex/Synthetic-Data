@@ -17,7 +17,7 @@ SELECT DISTINCT(no_id)
 FROM sales_products AS sp
 JOIN users AS u
 	ON sp.user_id = u.user_id
-JOIN invoices as i
+JOIN invoices AS i
 	ON sp.sale_id = i.sale_id
 WHERE YEAR(i.created_at) = 2020 AND sp.type = 'Lentes de Contacto';
 
