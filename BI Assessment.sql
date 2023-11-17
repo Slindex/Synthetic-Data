@@ -129,3 +129,28 @@ FROM 2020_product_sales AS a
 JOIN 2021_product_sales AS b
 	ON a.product = b.product
 ORDER BY var_perc DESC;
+
+-- Exercise 10 / I propose 2 solutions: with and without the brands the user have changed
+
+-- Solution 1
+SELECT DISTINCT
+	s1.user_id,
+    s1.type,
+    s1.brand AS original_brand,
+    s2.brand AS new_brand
+FROM sales_products AS s1
+JOIN sales_products AS s2
+	ON s1.user_id = s2.user_id
+    AND s1.type = s2.type
+    AND s1.brand <> s2.brand
+ORDER BY user_id ASC, type ASC;
+
+-- Solution 2
+SELECT DISTINCT
+	s1.user_id
+FROM sales_products AS s1
+JOIN sales_products AS s2
+	ON s1.user_id = s2.user_id
+    AND s1.type = s2.type
+    AND s1.brand <> s2.brand
+ORDER BY user_id ASC;
