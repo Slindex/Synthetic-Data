@@ -1,7 +1,7 @@
 from random import randint, choice
 from datetime import date, timedelta
 
-def randomDate(startDate=date(2023, 11, 16), endDate=date(2023, 11, 30)):
+def randomDate(startDate=date(2019,1,1), endDate=date(2021,12,31)):
 
     """
     Generate a random date between startDate and endDate.
@@ -22,6 +22,22 @@ def randomDate(startDate=date(2023, 11, 16), endDate=date(2023, 11, 30)):
     return date
 
 def randomValue():
+
+    """
+    Returns a random value between 20000 and 200000 divisible by 20000.
+
+    Parameters:
+    None
+
+    Returns:
+    - value(int): A random value divisible by 20000.
+    """
+
+    value = randint(1, 10) * 20000
+
+    return value
+
+def randomPrice():
 
     """
     Returns a random value between 2000 and 20000 divisible by 2000.
